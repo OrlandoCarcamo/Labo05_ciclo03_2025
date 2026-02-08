@@ -42,6 +42,7 @@ Estudiante* insertar(Estudiante* raiz, int carnet, char nombre[], float nota) {
         raiz->derecho = insertar(raiz->derecho, carnet, nombre, nota);
 
     return raiz;
+<<<<<<< HEAD
 
 }
 
@@ -53,4 +54,44 @@ void mostrarEstudiantes(Estudiante* raiz) {
              << " | Nota: " << raiz->nota << endl;
         mostrarEstudiantes(raiz->derecho);
     }
+=======
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void buscarEstudiante(Estudiante* raiz, int carnet) {
+
+   if(!raiz){
+printf("El dato buscado NO está en el árbol");
+}
+
+    if(carnet == raiz->carnet){
+        cout << "Encontrado:\n";
+        cout << raiz->nombre << " - Nota: " << raiz->nota << endl;
+    }
+    else if(carnet < raiz->carnet)
+        buscarEstudiante(raiz->izquierdo, carnet);
+    else
+        buscarEstudiante(raiz->derecho, carnet);
+>>>>>>> b2a71a98d5bb13d65e92c88fed30bee96980fe95
 }
