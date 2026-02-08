@@ -42,7 +42,7 @@ Estudiante* insertar(Estudiante* raiz, int carnet, char nombre[], float nota) {
         raiz->derecho = insertar(raiz->derecho, carnet, nombre, nota);
 
     return raiz;
-<<<<<<< HEAD
+
 
 }
 
@@ -54,10 +54,22 @@ void mostrarEstudiantes(Estudiante* raiz) {
              << " | Nota: " << raiz->nota << endl;
         mostrarEstudiantes(raiz->derecho);
     }
-=======
+
+}
+void mostrarAprobados(Estudiante* raiz) {
+    if (raiz != NULL) {
+        mostrarAprobados(raiz->izquierdo);
+
+        if (raiz->nota >= 6.0) {
+            cout << raiz->nombre << " (" << raiz->nota << ")\n";
+        }
+
+        mostrarAprobados(raiz->derecho);
+    }
 }
 
-
+///prueba
+//ok
 
 
 
