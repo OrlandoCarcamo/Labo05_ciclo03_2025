@@ -68,23 +68,17 @@ void mostrarAprobados(Estudiante* raiz) {
     }
 }
 
-///prueba
-//ok
+void mostrarReprobados(Estudiante* raiz) {
+    if (raiz != NULL) {
+        mostrarReprobados(raiz->izquierdo);
 
+        if (raiz->nota < 6.0) {
+            cout << raiz->nombre << " (" << raiz->nota << ")\n";
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        mostrarReprobados(raiz->derecho);
+    }
+}
 
 
 
@@ -105,5 +99,5 @@ printf("El dato buscado NO está en el árbol");
         buscarEstudiante(raiz->izquierdo, carnet);
     else
         buscarEstudiante(raiz->derecho, carnet);
->>>>>>> b2a71a98d5bb13d65e92c88fed30bee96980fe95
+
 }
