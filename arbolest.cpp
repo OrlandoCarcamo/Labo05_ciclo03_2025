@@ -84,13 +84,6 @@ void mostrarAprobados(Estudiante* raiz) {
 
 
 
-
-
-
-
-
-
-
 void buscarEstudiante(Estudiante* raiz, int carnet) {
 
    if(!raiz){
@@ -105,5 +98,24 @@ printf("El dato buscado NO está en el árbol");
         buscarEstudiante(raiz->izquierdo, carnet);
     else
         buscarEstudiante(raiz->derecho, carnet);
->>>>>>> b2a71a98d5bb13d65e92c88fed30bee96980fe95
+}
+
+
+
+
+
+
+float calcularPromedio(Estudiante* raiz, int* contador) {
+    if (raiz == NULL) return 0;
+
+    float suma = 0;
+
+    suma += calcularPromedio(raiz->izquierdo, contador);
+
+    suma += raiz->nota;
+    (*contador)++;
+
+    suma += calcularPromedio(raiz->derecho, contador);
+
+    return suma;
 }
