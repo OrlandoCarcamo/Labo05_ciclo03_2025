@@ -71,13 +71,17 @@ void mostrarAprobados(Estudiante* raiz) {
 ///prueba
 //ok
 
+void mostrarReprobados(Estudiante* raiz) {
+    if (raiz != NULL) {
+        mostrarReprobados(raiz->izquierdo);
 
+        if (raiz->nota < 6.0) {
+            cout << raiz->nombre << " (" << raiz->nota << ")\n";
+        }
 
-
-
-
-
-
+        mostrarReprobados(raiz->derecho);
+    }
+}
 
 
 
@@ -105,25 +109,24 @@ printf("El dato buscado NO está en el árbol");
         buscarEstudiante(raiz->izquierdo, carnet);
     else
         buscarEstudiante(raiz->derecho, carnet);
-<<<<<<< HEAD
->>>>>>> b2a71a98d5bb13d65e92c88fed30bee96980fe95
-=======
-
 }
 
 
-Estudiante* encontrarMejorNota(Estudiante* raiz) {
 
-    if(!raiz) return NULL;
 
-    Estudiante* mejor = raiz;
 
-    Estudiante* izq = encontrarMejorNota(raiz->izquierdo);
-    Estudiante* der = encontrarMejorNota(raiz->derecho);
 
-    if(izq && izq->nota > mejor->nota) mejor = izq;
-    if(der && der->nota > mejor->nota) mejor = der;
+float calcularPromedio(Estudiante* raiz, int* contador) {
+    if (raiz == NULL) return 0;
 
-    return mejor;
->>>>>>> 951c18f359f2da10c516ab8e6407207e3dc0e65b
+    float suma = 0;
+
+    suma += calcularPromedio(raiz->izquierdo, contador);
+
+    suma += raiz->nota;
+    (*contador)++;
+
+    suma += calcularPromedio(raiz->derecho, contador);
+
+    return suma;
 }
