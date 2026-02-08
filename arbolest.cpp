@@ -105,5 +105,25 @@ printf("El dato buscado NO está en el árbol");
         buscarEstudiante(raiz->izquierdo, carnet);
     else
         buscarEstudiante(raiz->derecho, carnet);
+<<<<<<< HEAD
 >>>>>>> b2a71a98d5bb13d65e92c88fed30bee96980fe95
+=======
+
+}
+
+
+Estudiante* encontrarMejorNota(Estudiante* raiz) {
+
+    if(!raiz) return NULL;
+
+    Estudiante* mejor = raiz;
+
+    Estudiante* izq = encontrarMejorNota(raiz->izquierdo);
+    Estudiante* der = encontrarMejorNota(raiz->derecho);
+
+    if(izq && izq->nota > mejor->nota) mejor = izq;
+    if(der && der->nota > mejor->nota) mejor = der;
+
+    return mejor;
+>>>>>>> 951c18f359f2da10c516ab8e6407207e3dc0e65b
 }
